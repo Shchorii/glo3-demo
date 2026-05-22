@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glo — Light up your block.</title>
+<meta name="description" content="Neighborhood advertising for the businesses that can be walked to. $29 a day, one block at a time." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFA94D'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Custom glow cursor -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-dot"></span>
+      <span class="brand-text">Glo</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#cities">Cities</a>
+      <a href="#price">Pricing</a>
+      <a href="#cta" class="nav-cta">Join the list</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
+  <section class="hero" data-theme="dark">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-streetlamp"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span>Seed round closed — Brooklyn live Q3 2026</span>
+      </div>
+      <h1 class="hero-title" data-split-chars>Glo</h1>
+      <p class="hero-sub" data-split-words>Light up your block.</p>
+      <p class="hero-foot">Neighborhood advertising for the businesses that<br/>can be walked to.</p>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- PROBLEM — pinned -->
+  <!-- ========================= -->
+  <section class="pin-stage problem" data-theme="light">
+    <div class="pin-content">
+      <div class="problem-line line-a">
+        <span class="muted">Your customers live</span>
+        <span class="emph" data-split-chars>four blocks away.</span>
+      </div>
+      <div class="problem-line line-b">
+        <span class="muted">Your ads reach</span>
+        <span class="emph emph-warn" data-split-chars>four million strangers.</span>
+      </div>
+      <div class="problem-line line-c">
+        <span class="break-line" data-split-chars>Something is broken.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- IMAGINE — pinned -->
+  <!-- ========================= -->
+  <section id="how" class="pin-stage imagine" data-theme="dark">
+    <div class="imagine-grid" aria-hidden="true"></div>
+    <div class="pin-content imagine-content">
+      <div class="imagine-eyebrow">02 — The thesis</div>
+      <h2 class="imagine-title">
+        <span class="imagine-prefix" data-split-words>Imagine the city as</span>
+        <span class="imagine-morph">
+          <span class="morph-word" data-morph="0">a grid of intent.</span>
+          <span class="morph-word" data-morph="1">a network of corners.</span>
+          <span class="morph-word" data-morph="2">a map of moments.</span>
+        </span>
+      </h2>
+      <ul class="imagine-list">
+        <li data-fade>Every block, a market.</li>
+        <li data-fade>Every storefront, a billboard.</li>
+        <li data-fade>Every passerby, a customer in waiting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- BLOCK MAP -->
+  <!-- ========================= -->
+  <section class="blockmap" data-theme="dark">
+    <div class="blockmap-text">
+      <div class="section-eyebrow">03 — Targeting</div>
+      <h2 class="section-h" data-split-words>We target by block. Not by zip code.</h2>
+      <p class="section-p">A 90-meter radius. A single intersection. A specific side of the street. The grid below isn't a metaphor — it's how the platform actually thinks.</p>
+    </div>
+    <div class="blockmap-grid" id="blockGrid" aria-hidden="true"></div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- PRICE -->
+  <!-- ========================= -->
+  <section id="price" class="price" data-theme="light">
+    <div class="price-eyebrow">04 — Pricing</div>
+    <div class="price-mega" data-split-chars>$29</div>
+    <div class="price-sub">
+      <span data-fade>per day.</span>
+      <span data-fade>per block.</span>
+      <span data-fade>no commitment.</span>
+    </div>
+    <p class="price-foot">What a billboard costs for an hour, you can run for a month.</p>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CITIES -->
+  <!-- ========================= -->
+  <section id="cities" class="cities" data-theme="dark">
+    <div class="section-head">
+      <div class="section-eyebrow">05 — Wedge cities</div>
+      <h2 class="section-h">Three neighborhoods.<br/>One playbook.</h2>
+    </div>
+    <div class="city-stack">
+      <article class="city" data-city="brooklyn">
+        <div class="city-no">01</div>
+        <div class="city-meta">
+          <h3>Brooklyn</h3>
+          <p>The hardware stores, the bagel counters, the corner bodegas. The shops that survive on regulars and word-of-mouth — and have never had ad budget to defend either.</p>
+        </div>
+        <div class="city-stat">
+          <span>4,820</span>
+          <small>SMBs in pilot</small>
+        </div>
+      </article>
+      <article class="city" data-city="telaviv">
+        <div class="city-no">02</div>
+        <div class="city-meta">
+          <h3>Tel Aviv</h3>
+          <p>Dizengoff to Florentin. The restaurants that fill on Thursday and empty on Monday. Local supply, hyperlocal demand — and a startup ecosystem fluent in the medium.</p>
+        </div>
+        <div class="city-stat">
+          <span>2,340</span>
+          <small>SMBs in pilot</small>
+        </div>
+      </article>
+      <article class="city" data-city="austin">
+        <div class="city-no">03</div>
+        <div class="city-meta">
+          <h3>Austin</h3>
+          <p>South Congress, East Sixth, Mueller. A growing city where every neighborhood still feels like a town, and where the small operator still defines the texture of a block.</p>
+        </div>
+        <div class="city-stat">
+          <span>3,110</span>
+          <small>SMBs in pilot</small>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- MOAT -->
+  <!-- ========================= -->
+  <section class="moat" data-theme="dark">
+    <div class="moat-inner">
+      <div class="section-eyebrow">06 — The moat</div>
+      <h2 class="moat-h">
+        Other platforms <em>place</em> ads.<br/>
+        We <em>own</em> the inventory.
+      </h2>
+      <p class="moat-p">A joint venture with a premium publisher network unlocks ad slots that aren't available to anyone else at a local price point. The structural advantage isn't the targeting — it's the supply.</p>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- QUOTE -->
+  <!-- ========================= -->
+  <section class="quote" data-theme="light">
+    <blockquote>
+      <span class="quote-mark">&ldquo;</span>
+      <p data-split-words>I'm running ads to people who walk past my door. I have never been able to do that before.</p>
+      <footer>— Maria, Bakery on Bedford Ave</footer>
+    </blockquote>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CTA -->
+  <!-- ========================= -->
+  <section id="cta" class="cta" data-theme="dark">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="cta-inner">
+      <h2 class="cta-h" data-split-chars>Light up your block.</h2>
+      <p class="cta-p">Brooklyn launches Q3. Tel Aviv and Austin to follow. <br/>Join the early operator list — first 500 blocks are free for a month.</p>
+      <form class="cta-form" onsubmit="return handleSubmit(event)">
+        <input type="email" placeholder="you@yourblock.com" required />
+        <button type="submit">
+          <span>Get on the list</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </form>
+      <div class="cta-msg" id="ctaMsg"></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <span class="brand-dot"></span>
+        Glo
+      </div>
+      <div class="foot-meta">
+        <span>© 2026 Glo, Inc.</span>
+        <span>·</span>
+        <span>A neighborhood is a market.</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- GSAP + Lenis from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
