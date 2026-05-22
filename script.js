@@ -30,16 +30,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el.dataset.split === "done") return;
     const text = el.textContent;
     el.innerHTML = "";
-    [...text].forEach((c) => {
-      const span = document.createElement("span");
-      if (c === " ") {
-        span.className = "char char-space";
-        span.innerHTML = "&nbsp;";
+    // Tokenize into words and spaces. Wrap each word in a .word-wrap (display: inline-block;
+    // white-space: nowrap) so wrapping happens at word boundaries — not mid-word.
+    // Inside each word, split into .char spans for individual animation.
+    const tokens = text.split(/(\s+)/);
+    tokens.forEach((tok) => {
+      if (!tok) return;
+      if (/^\s+$/.test(tok)) {
+        // Real whitespace text node — preserves natural line-break opportunities
+        el.appendChild(document.createTextNode(" "));
       } else {
-        span.className = "char";
-        span.textContent = c;
+        const wrap = document.createElement("span");
+        wrap.className = "word-wrap";
+        [...tok].forEach((c) => {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.textContent = c;
+          wrap.appendChild(span);
+        });
+        el.appendChild(wrap);
       }
-      el.appendChild(span);
     });
     el.dataset.split = "done";
   }

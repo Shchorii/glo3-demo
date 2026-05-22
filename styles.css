@@ -228,11 +228,14 @@ body[data-theme="light"] .nav-cta {
   letter-spacing: -0.04em;
   margin: 0 0 30px -8px;
   color: var(--ink);
+}
+/* Apply the gradient on the chars (because background-clip: text doesn't propagate to child spans) */
+.hero-title .char {
   background: linear-gradient(180deg, #fff8eb 0%, #ffa94d 60%, #d97a2c 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 80px rgba(255, 169, 77, 0.3);
+  filter: drop-shadow(0 0 30px rgba(255, 169, 77, 0.25));
 }
 .hero-sub {
   font-family: var(--f-display);
@@ -551,6 +554,8 @@ body[data-theme="light"] .nav-cta {
   font-weight: 400;
   letter-spacing: -0.05em;
   margin: 0;
+}
+.price-mega .char {
   background: linear-gradient(180deg, #15151c 0%, #d97a2c 80%, #ffa94d 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -781,6 +786,8 @@ body[data-theme="light"] .nav-cta {
   letter-spacing: -0.03em;
   margin: 0 0 40px 0;
   font-weight: 400;
+}
+.cta-h .char {
   background: linear-gradient(180deg, #fff8eb 0%, #ffa94d 60%, #d97a2c 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -881,6 +888,12 @@ body[data-theme="light"] .nav-cta {
 }
 .word { white-space: pre; }
 .char-space { width: 0.25em; }
+/* When chars are split, wrap each word in this so wrapping happens at word boundaries
+   instead of breaking mid-word at arbitrary char positions */
+.word-wrap {
+  display: inline-block;
+  white-space: nowrap;
+}
 
 /* ================================================================
    RESPONSIVE
