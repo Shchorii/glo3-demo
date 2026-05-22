@@ -15,6 +15,18 @@
 </head>
 <body>
 
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <span class="loader-char" data-i="0">G</span><span class="loader-char" data-i="1">l</span><span class="loader-char" data-i="2">o</span>
+    <div class="loader-meta">
+      <span class="loader-meta-l">Brooklyn</span>
+      <span class="loader-bar"><span class="loader-bar-fill"></span></span>
+      <span class="loader-meta-r" id="loaderPct">000</span>
+    </div>
+  </div>
+</div>
+
 <!-- Grain overlay -->
 <div class="grain" aria-hidden="true"></div>
 
@@ -117,10 +129,119 @@
   </section>
 
   <!-- ========================= -->
+  <!-- HORIZONTAL — A day on the block -->
+  <!-- ========================= -->
+  <section class="daysection" data-theme="dark">
+    <div class="daysection-pin">
+      <div class="daysection-track" id="dayTrack">
+
+        <!-- Intro panel -->
+        <div class="day-panel day-intro">
+          <div class="day-intro-inner">
+            <div class="section-eyebrow">04 — A day on the block</div>
+            <h2 class="day-intro-h">
+              <span>A neighborhood</span>
+              <span>is not a&nbsp;market.</span>
+              <span><em>It's twenty-four of&nbsp;them.</em></span>
+            </h2>
+            <p class="day-intro-p">A single block hosts a dozen businesses, each peaking at a different hour. Glo serves the right ad at the right moment — to the people already two minutes away on foot.</p>
+            <div class="day-intro-foot">
+              <span>Scroll →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 1: 7am Bakery -->
+        <div class="day-panel" data-time="dawn">
+          <div class="day-panel-bg"></div>
+          <div class="day-panel-inner">
+            <div class="day-tag">
+              <span class="day-time">07:00</span>
+              <span class="day-loc">● Bedford & N. 7th</span>
+            </div>
+            <h3 class="day-h"><em>Morning&nbsp;rush.</em><br/>Coffee, croissants, commuters.</h3>
+            <p class="day-p">Glo lights up the block at 6:45. Every screen between the subway exit and the storefront — bus shelter, gas-pump display, weather-app banner — runs the bakery's $4 espresso ad.</p>
+            <div class="day-stat"><strong>820</strong><span>impressions / hour</span></div>
+          </div>
+        </div>
+
+        <!-- Panel 2: 11:30 Hardware -->
+        <div class="day-panel" data-time="day">
+          <div class="day-panel-bg"></div>
+          <div class="day-panel-inner">
+            <div class="day-tag">
+              <span class="day-time">11:30</span>
+              <span class="day-loc">● Driggs & Berry</span>
+            </div>
+            <h3 class="day-h"><em>Pre-lunch&nbsp;contractors.</em><br/>Looking for a 3/8-inch&nbsp;bit.</h3>
+            <p class="day-p">A general store, a paint shop, a hardware store — all on the same corner. Glo serves a price-match offer to anyone within 200 meters between 11&nbsp;and&nbsp;noon.</p>
+            <div class="day-stat"><strong>340</strong><span>impressions / hour</span></div>
+          </div>
+        </div>
+
+        <!-- Panel 3: 1:45 Bookstore -->
+        <div class="day-panel" data-time="afternoon">
+          <div class="day-panel-bg"></div>
+          <div class="day-panel-inner">
+            <div class="day-tag">
+              <span class="day-time">13:45</span>
+              <span class="day-loc">● Wythe & N. 5th</span>
+            </div>
+            <h3 class="day-h"><em>Saturday&nbsp;drift.</em><br/>Four-block&nbsp;radius.</h3>
+            <p class="day-p">A bookstore that lives on weekend foot traffic runs a curated reading list ad to everyone walking south on Wythe. The closer the impression, the higher the bid.</p>
+            <div class="day-stat"><strong>1,210</strong><span>impressions / hour</span></div>
+          </div>
+        </div>
+
+        <!-- Panel 4: 7:30pm Pizza -->
+        <div class="day-panel" data-time="dusk">
+          <div class="day-panel-bg"></div>
+          <div class="day-panel-inner">
+            <div class="day-tag">
+              <span class="day-time">19:30</span>
+              <span class="day-loc">● Metropolitan & Roebling</span>
+            </div>
+            <h3 class="day-h"><em>Friday&nbsp;hunger.</em><br/>Three blocks&nbsp;out.</h3>
+            <p class="day-p">A pizza place wins the impression before the customer reaches the corner. The decision is made on the walk, not at the door. Glo is what was running on the walk.</p>
+            <div class="day-stat"><strong>2,540</strong><span>impressions / hour</span></div>
+          </div>
+        </div>
+
+        <!-- Panel 5: 11pm Bodega -->
+        <div class="day-panel" data-time="night">
+          <div class="day-panel-bg"></div>
+          <div class="day-panel-inner">
+            <div class="day-tag">
+              <span class="day-time">23:00</span>
+              <span class="day-loc">● Bedford & N. 6th</span>
+            </div>
+            <h3 class="day-h"><em>Late&nbsp;night.</em><br/>The corner&nbsp;bodega.</h3>
+            <p class="day-p">A $3-off six-pack ad runs on every screen within a 200-meter walk. The bodega adjusts price on the fly when foot traffic peaks. The block becomes a one-store mall.</p>
+            <div class="day-stat"><strong>980</strong><span>impressions / hour</span></div>
+          </div>
+        </div>
+
+        <!-- Outro -->
+        <div class="day-panel day-outro">
+          <div class="day-outro-inner">
+            <h3 class="day-outro-h">
+              <em>One block.</em><br/>
+              Six businesses.<br/>
+              Six different&nbsp;hours.
+            </h3>
+            <p class="day-outro-p">Twenty-four markets, stacked on top of each other. Glo serves them all — without one paying for another's audience.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
   <!-- PRICE -->
   <!-- ========================= -->
   <section id="price" class="price" data-theme="light">
-    <div class="price-eyebrow">04 — Pricing</div>
+    <div class="price-eyebrow">05 — Pricing</div>
     <div class="price-mega" data-split-chars>$29</div>
     <div class="price-sub">
       <span data-fade>per day.</span>
@@ -135,7 +256,7 @@
   <!-- ========================= -->
   <section id="cities" class="cities" data-theme="dark">
     <div class="section-head">
-      <div class="section-eyebrow">05 — Wedge cities</div>
+      <div class="section-eyebrow">06 — Wedge cities</div>
       <h2 class="section-h">Three neighborhoods.<br/>One playbook.</h2>
     </div>
     <div class="city-stack">
@@ -180,7 +301,7 @@
   <!-- ========================= -->
   <section class="moat" data-theme="dark">
     <div class="moat-inner">
-      <div class="section-eyebrow">06 — The moat</div>
+      <div class="section-eyebrow">07 — The moat</div>
       <h2 class="moat-h">
         Other platforms <em>place</em> ads.<br/>
         We <em>own</em> the inventory.

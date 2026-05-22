@@ -932,3 +932,283 @@ body[data-theme="light"] .nav-cta {
   }
   .cursor-glow { display: none; }
 }
+
+/* ================================================================
+   LOADER — "GLO" lights up like streetlamps igniting
+================================================================ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #050509;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+.loader-inner {
+  text-align: center;
+  position: relative;
+}
+.loader-char {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: clamp(120px, 22vw, 320px);
+  line-height: 1;
+  color: #1f1d22;
+  letter-spacing: -0.04em;
+  transition: color 0.5s ease, text-shadow 0.5s ease, filter 0.5s ease;
+  filter: blur(8px);
+}
+.loader-char.lit {
+  color: var(--glow);
+  filter: blur(0);
+  text-shadow:
+    0 0 30px var(--glow),
+    0 0 60px rgba(255, 169, 77, 0.5),
+    0 0 120px rgba(255, 169, 77, 0.3);
+}
+.loader-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 40px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.loader-bar {
+  display: inline-block;
+  width: 120px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--glow);
+  transform: translateX(-100%);
+  transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.loader-bar-fill.fill { transform: translateX(0); }
+.loader.gone { opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }
+
+/* ================================================================
+   HORIZONTAL — A day on the block
+================================================================ */
+.daysection {
+  position: relative;
+  background: var(--bg-dark);
+  /* Tall outer so we have scroll room — JS computes pin distance dynamically */
+}
+.daysection-pin {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+.daysection-track {
+  display: flex;
+  height: 100vh;
+  will-change: transform;
+}
+.day-panel {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--pad-x);
+}
+
+/* Intro panel */
+.day-intro {
+  background: var(--bg-dark);
+}
+.day-intro-inner {
+  max-width: 900px;
+}
+.day-intro-h {
+  font-family: var(--f-display);
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  margin: 28px 0 40px 0;
+  font-style: normal;
+}
+.day-intro-h span { display: block; }
+.day-intro-h em {
+  color: var(--glow);
+  font-style: italic;
+}
+.day-intro-p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 540px;
+  margin: 0 0 80px 0;
+}
+.day-intro-foot {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--glow);
+}
+
+/* Time-of-day backdrops */
+.day-panel[data-time="dawn"] .day-panel-bg {
+  background:
+    radial-gradient(ellipse at 80% 40%, rgba(255, 169, 77, 0.20) 0%, transparent 50%),
+    linear-gradient(135deg, #1a0f0a 0%, #2a1f15 50%, #0a0a0f 100%);
+}
+.day-panel[data-time="day"] .day-panel-bg {
+  background:
+    radial-gradient(ellipse at 60% 30%, rgba(125, 211, 252, 0.10) 0%, transparent 60%),
+    linear-gradient(135deg, #181a20 0%, #20232a 50%, #0a0a0f 100%);
+}
+.day-panel[data-time="afternoon"] .day-panel-bg {
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(255, 200, 130, 0.16) 0%, transparent 55%),
+    linear-gradient(135deg, #2a1f10 0%, #1a1208 50%, #0a0a0f 100%);
+}
+.day-panel[data-time="dusk"] .day-panel-bg {
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(217, 122, 44, 0.22) 0%, transparent 55%),
+    linear-gradient(135deg, #2a1620 0%, #1a1018 50%, #0a0a0f 100%);
+}
+.day-panel[data-time="night"] .day-panel-bg {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(255, 169, 77, 0.14) 0%, transparent 50%),
+    linear-gradient(135deg, #0d0d18 0%, #0a0a14 50%, #060608 100%);
+}
+.day-panel-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.day-panel-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 169, 77, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 169, 77, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at 70% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 20%, transparent 80%);
+}
+
+.day-panel-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+.day-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+.day-time {
+  color: var(--glow);
+  font-weight: 500;
+}
+.day-loc {
+  color: var(--ink-dim);
+}
+.day-h {
+  font-family: var(--f-display);
+  font-style: normal;
+  font-size: clamp(40px, 5.5vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0 0 32px 0;
+  color: var(--ink);
+}
+.day-h em {
+  font-style: italic;
+  color: var(--glow);
+}
+.day-p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 540px;
+  margin: 0 0 60px 0;
+}
+.day-stat {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 28px;
+  border-left: 2px solid var(--glow);
+}
+.day-stat strong {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.day-stat span {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Outro */
+.day-outro {
+  background: var(--bg-dark);
+}
+.day-outro-inner {
+  max-width: 900px;
+}
+.day-outro-h {
+  font-family: var(--f-display);
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  margin: 0 0 40px 0;
+}
+.day-outro-h em {
+  color: var(--glow);
+  font-style: italic;
+}
+.day-outro-p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 540px;
+}
+
+@media (max-width: 920px) {
+  .day-h { font-size: clamp(32px, 6vw, 56px); }
+  .day-stat strong { font-size: 40px; }
+}

@@ -6,6 +6,47 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ---------- Loader sequence ---------- */
+  const loader = document.getElementById("loader");
+  const loaderChars = document.querySelectorAll(".loader-char");
+  const loaderBar = document.querySelector(".loader-bar-fill");
+  const loaderPct = document.getElementById("loaderPct");
+
+  // Hold scroll while loader runs
+  document.body.style.overflow = "hidden";
+
+  // Light the chars in sequence
+  function igniteLoader() {
+    return new Promise((resolve) => {
+      // Ramp the percentage / bar
+      let p = 0;
+      const tick = setInterval(() => {
+        p += Math.random() * 14 + 4;
+        if (p > 100) p = 100;
+        if (loaderPct) loaderPct.textContent = String(Math.floor(p)).padStart(3, "0");
+        if (p >= 100) clearInterval(tick);
+      }, 80);
+      setTimeout(() => loaderBar.classList.add("fill"), 50);
+
+      // Ignite each letter
+      loaderChars.forEach((c, i) => {
+        setTimeout(() => c.classList.add("lit"), 300 + i * 260);
+      });
+
+      // Done
+      setTimeout(resolve, 1500);
+    });
+  }
+
+  igniteLoader().then(() => {
+    loader.classList.add("gone");
+    document.body.style.overflow = "";
+    setTimeout(() => loader.remove(), 700);
+    initSite();
+  });
+
+  function initSite() {
+
   /* ---------- Lenis smooth scroll ---------- */
   const lenis = new Lenis({
     duration: 1.15,
@@ -461,8 +502,74 @@ document.addEventListener("DOMContentLoaded", () => {
     yoyo: true,
   });
 
+  /* ================================================================
+     HORIZONTAL — Day on the block
+     Standard GSAP horizontal-scroll pattern: pin the section, tween the
+     track's x against the scroll, and use containerAnimation on the
+     per-panel ScrollTriggers so they fire as panels enter horizontally.
+  ================================================================ */
+  const dayTrack = document.getElementById("dayTrack");
+  if (dayTrack) {
+    const panels = dayTrack.querySelectorAll(".day-panel");
+
+    // Horizontal pan tied to vertical scroll. ScrollTrigger creates a
+    // spacer for the pin equal to the `end` distance, so we don't need
+    // to set the outer section height manually.
+    const horizontalTween = gsap.to(dayTrack, {
+      x: () => -(dayTrack.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".daysection",
+        pin: ".daysection-pin",
+        start: "top top",
+        end: () => "+=" + (dayTrack.scrollWidth - window.innerWidth),
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
+      },
+    });
+
+    // Per-panel reveal animations — use containerAnimation so they fire
+    // based on the panel's horizontal position within the moving track.
+    panels.forEach((panel, i) => {
+      const content =
+        panel.querySelector(".day-panel-inner") ||
+        panel.querySelector(".day-intro-inner") ||
+        panel.querySelector(".day-outro-inner");
+      if (!content) return;
+      const children = content.children;
+      if (i === 0) {
+        // Intro panel animates as the section first enters
+        gsap.from(children, {
+          opacity: 0,
+          y: 40,
+          stagger: 0.1,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".daysection", start: "top 75%" },
+        });
+      } else {
+        gsap.from(children, {
+          opacity: 0,
+          y: 50,
+          stagger: 0.12,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: panel,
+            containerAnimation: horizontalTween,
+            start: "left 75%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      }
+    });
+  }
+
   /* Refresh ScrollTrigger after layout settles */
   window.addEventListener("load", () => ScrollTrigger.refresh());
+
+  } // end initSite
 });
 
 /* ---------- Form handler ---------- */
