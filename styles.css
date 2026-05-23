@@ -1268,6 +1268,72 @@ button { font-family: inherit; cursor: pointer; }
 .msr-st.warn { color: #FBBF24; }
 .msr-st.off { color: var(--d-ink-4); }
 
+/* Mock channel grid (distribution feature) */
+.channels-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px;
+}
+.channel-card {
+  background: var(--d-bg-2);
+  border: 1px solid var(--d-line);
+  border-radius: 8px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ch-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.ch-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--d-ink);
+  letter-spacing: -0.005em;
+}
+.ch-count {
+  font-size: 11.5px;
+  color: var(--d-ink-4);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ch-sub {
+  font-size: 11.5px;
+  color: var(--d-ink-3);
+  line-height: 1.45;
+}
+.ch-bar {
+  height: 3px;
+  background: var(--d-line-2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.ch-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #F5BD7C 0%, #D97706 100%);
+  border-radius: 2px;
+}
+.ms-foot {
+  padding: 12px 16px;
+  border-top: 1px solid var(--d-line);
+  background: var(--d-bg-2);
+  font-size: 11.5px;
+  color: var(--d-ink-3);
+  border-bottom: 0;
+}
+.ms-fl { letter-spacing: -0.005em; }
+
+@media (max-width: 640px) {
+  .channels-grid { grid-template-columns: 1fr; }
+}
+
 /* Mock chart (analytics) */
 .ms-stats-row {
   display: grid;
