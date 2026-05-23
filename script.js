@@ -45,11 +45,34 @@
   // 50–68%: cap fades briefly during the transition
   tl.to('.intro-cap', { opacity: 0, duration: 0.18 }, 0.50);
 
-  // 60–90%: brand mark fades in, scales up to full
-  tl.to('.intro-final', { opacity: 1, scale: 1, duration: 0.30 }, 0.60);
+  // 60–80%: brand mark fades in, scales up to full (then holds 0.80–0.92)
+  tl.to('.intro-final', { opacity: 1, scale: 1, duration: 0.20 }, 0.60);
 
-  // 80–100%: cap fades back in below brand
-  tl.to('.intro-cap', { opacity: 1, duration: 0.20 }, 0.80);
+  // 80–85%: cap fades back in below brand (quick reveal)
+  tl.to('.intro-cap', { opacity: 1, duration: 0.05 }, 0.80);
+
+  // 88–93%: cap fades out — beginning the transition to white
+  tl.to('.intro-cap', { opacity: 0, duration: 0.05 }, 0.88);
+
+  // 90–100%: SMOOTH HERO TRANSITION — dark canvas lifts to white
+  // The stage's bg color is what fills the viewport during sticky, so
+  // animating it directly hands the user off to the (white) hero with
+  // zero hard cut at the section boundary.
+  tl.to('.intro-stage', { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.90);
+  tl.to('.intro',       { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.90);
+
+  // Photo layer + vignette dissolve to nothing as the canvas brightens
+  tl.to('.intro-bg',       { opacity: 0, duration: 0.10 }, 0.90);
+  tl.to('.intro-vignette', { opacity: 0, duration: 0.10 }, 0.90);
+
+  // 92–100%: brand mark flips from white-on-dark to dark-on-white, drop-
+  // shadow halo dissipates. Slight delay vs. bg so the canvas changes
+  // first and the mark reacts to it (feels more cinematic).
+  tl.to('.intro-final', {
+    color: '#0A0A0A',
+    textShadow: '0 2px 24px rgba(0, 0, 0, 0)',
+    duration: 0.08
+  }, 0.92);
 })();
 
 /* ===========================================================
