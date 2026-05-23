@@ -860,6 +860,9 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
 }
+.metrics-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
 .m-cell {
   display: flex;
   flex-direction: column;
@@ -1660,7 +1663,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .foot-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 56px;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--line);
