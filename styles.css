@@ -663,6 +663,195 @@ button { font-family: inherit; cursor: pointer; }
 .logo-wm:hover { opacity: 1; color: var(--ink-2); }
 
 /* ==================================================================
+   PRESS / COVERAGE STRIP
+================================================================== */
+.press {
+  padding: 36px 0 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+.press-lead {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin: 0 0 22px 0;
+  font-weight: 500;
+}
+.press-row {
+  display: flex;
+  gap: 56px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.press-wm {
+  color: var(--ink-4);
+  opacity: 0.75;
+  transition: opacity var(--t-fast), color var(--t-fast);
+  font-size: 17px;
+  letter-spacing: -0.005em;
+}
+.press-wm:hover { color: var(--ink-2); opacity: 1; }
+.wm-tc { font-weight: 400; font-size: 19px; letter-spacing: -0.015em; }
+.wm-tc b { font-weight: 600; color: var(--ok); }
+.wm-tc:hover b { color: var(--ok); }
+.wm-ti { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 19px; font-style: italic; letter-spacing: -0.015em; }
+.wm-dd { font-weight: 800; letter-spacing: 0.06em; font-size: 14px; }
+.wm-aw { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+.wm-aw::before { content: "ad"; font-weight: 400; color: var(--ink-5); }
+.wm-aw:hover::before { color: var(--ink-3); }
+.wm-ax { font-weight: 700; font-size: 17px; letter-spacing: -0.015em; }
+
+/* ==================================================================
+   PILOT RESULTS
+================================================================== */
+.pilot {
+  padding: var(--gap) 0;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.pilot-head {
+  max-width: 720px;
+  margin: 0 0 56px 0;
+}
+.pilot-h {
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  margin: 0 0 18px 0;
+}
+.pilot-p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin: 0;
+  max-width: 560px;
+}
+.pilot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+.pilot-cell {
+  background: var(--bg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pilot-n {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pilot-n i {
+  font-style: normal;
+  color: var(--ink-4);
+  font-weight: 400;
+  font-size: 30px;
+  margin-left: -2px;
+}
+.pilot-l {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.pilot-d {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+.pilot-quote {
+  margin: 0;
+  padding: 36px 0 0 0;
+  border-top: 1px solid var(--line);
+  max-width: 880px;
+}
+.pilot-quote p {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 20px 0;
+  font-feature-settings: "ss01";
+}
+.pilot-quote footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.pq-ava {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D97706 0%, #92400E 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.pq-meta { color: var(--ink-3); }
+.pq-meta strong { color: var(--ink); font-weight: 500; }
+
+/* ==================================================================
+   FOUNDER NOTE
+================================================================== */
+.founder-note {
+  padding: var(--gap) 0;
+  border-bottom: 1px solid var(--line);
+}
+.fn-eyebrow {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 32px;
+}
+.fn-body {
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.fn-body p {
+  margin: 0 0 20px 0;
+}
+.fn-body p:last-of-type { margin-bottom: 0; }
+.fn-sign {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fn-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.fn-role {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/* ==================================================================
    FEATURE SECTIONS
 ================================================================== */
 .feature {
@@ -961,10 +1150,18 @@ button { font-family: inherit; cursor: pointer; }
   gap: 6px;
 }
 .who-i {
-  font-size: 22px;
-  margin-bottom: 12px;
-  filter: grayscale(0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  background: var(--bg);
 }
+.who-i svg { width: 18px; height: 18px; }
 .who-c strong {
   font-size: 15.5px;
   font-weight: 500;
@@ -1195,6 +1392,7 @@ button { font-family: inherit; cursor: pointer; }
   .who-grid, .team-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid { grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; }
   .app-body { grid-template-columns: 200px 1fr; }
+  .pilot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
   .nav-links { display: none; }
@@ -1203,6 +1401,7 @@ button { font-family: inherit; cursor: pointer; }
   .hero-cta { flex-direction: column; gap: 12px; }
   .metrics-grid { grid-template-columns: 1fr 1fr; gap: 18px 0; }
   .logos { gap: 32px; }
+  .press-row { gap: 28px; }
   .feature-list div { grid-template-columns: 1fr; gap: 4px; padding-top: 16px; }
   .who-grid, .team-grid { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
@@ -1214,6 +1413,7 @@ button { font-family: inherit; cursor: pointer; }
   .pc-row > *:nth-child(3), .pc-row > *:nth-child(4) { display: none; }
   .tl-url { display: none; }
   .app-titlebar { grid-template-columns: 1fr; }
+  .pilot-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
