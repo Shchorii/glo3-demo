@@ -50,6 +50,8 @@
 })();
 
 
+/* ===========================================================
+   GLO — Interactive hero map
    Drag the pin. Click radius pills. Reach + address update live.
    =========================================================== */
 (function () {
