@@ -45,34 +45,39 @@
   // 50–68%: cap fades briefly during the transition
   tl.to('.intro-cap', { opacity: 0, duration: 0.18 }, 0.50);
 
-  // 60–80%: brand mark fades in, scales up to full (then holds 0.80–0.92)
-  tl.to('.intro-final', { opacity: 1, scale: 1, duration: 0.20 }, 0.60);
+  // 55–72%: brand mark fades in, scales up to full (then holds 0.72–0.84)
+  tl.to('.intro-final', { opacity: 1, scale: 1, duration: 0.17 }, 0.55);
 
-  // 80–85%: cap fades back in below brand (quick reveal)
-  tl.to('.intro-cap', { opacity: 1, duration: 0.05 }, 0.80);
+  // 73–78%: cap fades back in below brand
+  tl.to('.intro-cap', { opacity: 1, duration: 0.05 }, 0.73);
 
-  // 88–93%: cap fades out — beginning the transition to white
-  tl.to('.intro-cap', { opacity: 0, duration: 0.05 }, 0.88);
+  // 82–86%: cap fades out — transition is starting
+  tl.to('.intro-cap', { opacity: 0, duration: 0.04 }, 0.82);
 
-  // 90–100%: SMOOTH HERO TRANSITION — dark canvas lifts to white
-  // The stage's bg color is what fills the viewport during sticky, so
-  // animating it directly hands the user off to the (white) hero with
-  // zero hard cut at the section boundary.
-  tl.to('.intro-stage', { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.90);
-  tl.to('.intro',       { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.90);
+  // 84–94%: SMOOTH HERO TRANSITION — dark canvas lifts to white
+  // Ending at 0.94 (not 1.0) so the scrub-eased timeline has time to
+  // fully settle BEFORE sticky releases at 1.0. Otherwise the user
+  // would see a mid-gray stage at the moment of release because the
+  // 0.8s scrub lag hasn't finished interpolating yet.
+  tl.to('.intro-stage', { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.84);
+  tl.to('.intro',       { backgroundColor: '#FFFFFF', duration: 0.10 }, 0.84);
 
   // Photo layer + vignette dissolve to nothing as the canvas brightens
-  tl.to('.intro-bg',       { opacity: 0, duration: 0.10 }, 0.90);
-  tl.to('.intro-vignette', { opacity: 0, duration: 0.10 }, 0.90);
+  tl.to('.intro-bg',       { opacity: 0, duration: 0.10 }, 0.84);
+  tl.to('.intro-vignette', { opacity: 0, duration: 0.10 }, 0.84);
 
-  // 92–100%: brand mark flips from white-on-dark to dark-on-white, drop-
+  // 86–94%: brand mark flips from white-on-dark to dark-on-white, drop-
   // shadow halo dissipates. Slight delay vs. bg so the canvas changes
   // first and the mark reacts to it (feels more cinematic).
   tl.to('.intro-final', {
     color: '#0A0A0A',
     textShadow: '0 2px 24px rgba(0, 0, 0, 0)',
     duration: 0.08
-  }, 0.92);
+  }, 0.86);
+
+  // 0.94–1.00: hold final state. Everything is now white canvas with
+  // dark gl• centered. Sticky releases at 1.00 into a fully prepared
+  // white viewport — the hero slides up into the same canvas.
 })();
 
 /* ===========================================================
