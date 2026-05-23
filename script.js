@@ -39,6 +39,9 @@
   // 50–72%: stack fades + scales down toward center
   tl.to('.intro-words', { opacity: 0, scale: 0.4, duration: 0.22 }, 0.50);
 
+  // 45–80%: background photos recede (still visible, but quieter)
+  tl.to('.bg-photo', { opacity: 0.18, scale: 0.92, duration: 0.35 }, 0.45);
+
   // 50–68%: cap fades briefly during the transition
   tl.to('.intro-cap', { opacity: 0, duration: 0.18 }, 0.50);
 

@@ -228,12 +228,13 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ==================================================================
    INTRO MORPH — first-page scroll choreography
-   Three words "Geo. Local. Owned." → brand mark "gl•"
+   "Grow. Local. Online." → brand mark "gl•"
+   Dark cinematic canvas with photo collage background.
 ================================================================== */
 .intro {
   position: relative;
   height: 260vh;
-  background: var(--bg);
+  background: #04070E;
 }
 .intro-stage {
   position: sticky;
@@ -246,9 +247,95 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   padding: 0 var(--pad-x);
   overflow: hidden;
+  background: #04070E;
 }
+
+/* ---------- Background photo collage ---------- */
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-photo {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  filter: brightness(0.5) saturate(0.85) contrast(1.06);
+  opacity: 0.62;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  will-change: transform, opacity;
+  animation: bgDrift 16s ease-in-out infinite;
+}
+.bgp-1 {
+  top: 6%; left: 3%;
+  width: clamp(160px, 16vw, 230px); height: clamp(220px, 22vw, 300px);
+  background-image: url('https://images.unsplash.com/photo-1749292177172-66edfd44e7cc?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(-3deg);
+  animation-delay: 0s;
+  --rot: -3deg;
+}
+.bgp-2 {
+  top: 8%; right: 4%;
+  width: clamp(200px, 21vw, 290px); height: clamp(150px, 16vw, 210px);
+  background-image: url('https://images.unsplash.com/photo-1758649863410-2d35a9d36f70?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(2.5deg);
+  animation-delay: -3s;
+  --rot: 2.5deg;
+}
+.bgp-3 {
+  top: 38%; left: 1%;
+  width: clamp(150px, 15vw, 210px); height: clamp(190px, 19vw, 250px);
+  background-image: url('https://images.unsplash.com/photo-1698281408696-222848ae8d74?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(2deg);
+  animation-delay: -6s;
+  --rot: 2deg;
+}
+.bgp-4 {
+  top: 36%; right: 2%;
+  width: clamp(180px, 18vw, 250px); height: clamp(140px, 14vw, 190px);
+  background-image: url('https://images.unsplash.com/photo-1681042121167-fec1056bc386?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(-2deg);
+  animation-delay: -9s;
+  --rot: -2deg;
+}
+.bgp-5 {
+  bottom: 10%; left: 6%;
+  width: clamp(190px, 20vw, 260px); height: clamp(150px, 15vw, 210px);
+  background-image: url('https://images.unsplash.com/photo-1749871615234-98bff62995ba?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(-2.5deg);
+  animation-delay: -12s;
+  --rot: -2.5deg;
+}
+.bgp-6 {
+  bottom: 7%; right: 5%;
+  width: clamp(160px, 17vw, 220px); height: clamp(210px, 21vw, 280px);
+  background-image: url('https://images.unsplash.com/photo-1758380389082-8a417db34c72?w=700&q=70&auto=format&fit=crop');
+  transform: rotate(3deg);
+  animation-delay: -2s;
+  --rot: 3deg;
+}
+@keyframes bgDrift {
+  0%, 100% { transform: rotate(var(--rot)) translateY(0); }
+  50% { transform: rotate(var(--rot)) translateY(-14px); }
+}
+
+/* Vignette: darken edges so center text reads */
+.intro-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 50% at center, transparent 0%, rgba(4, 7, 14, 0.35) 55%, rgba(4, 7, 14, 0.82) 100%),
+    linear-gradient(180deg, rgba(4, 7, 14, 0.45) 0%, transparent 18%, transparent 82%, rgba(4, 7, 14, 0.6) 100%);
+}
+
+/* ---------- Text layer (above bg) ---------- */
 .intro-words {
   position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,14 +349,18 @@ button { font-family: inherit; cursor: pointer; }
   font-variation-settings: "wght" 500;
   letter-spacing: -0.045em;
   line-height: 1.02;
-  color: var(--ink);
+  color: #FFFFFF;
   white-space: nowrap;
   margin: 0;
   will-change: transform, opacity;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.4);
 }
-.il { color: var(--ink); display: inline-block; }
+.il {
+  color: #FFFFFF;
+  display: inline-block;
+}
 .ir {
-  color: var(--ink-4);
+  color: rgba(255, 255, 255, 0.28);
   display: inline-block;
   will-change: transform, opacity;
 }
@@ -278,6 +369,7 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 2px;
@@ -285,9 +377,9 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 64px;
   font-weight: 500;
   letter-spacing: -0.04em;
-  color: var(--ink);
+  color: #FFFFFF;
   pointer-events: none;
-  /* GSAP will manage xPercent, yPercent, scale, opacity */
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 .if-word {
   font-variation-settings: "wght" 500;
@@ -303,13 +395,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .intro-cap {
+  position: relative;
+  z-index: 2;
   font-size: 14.5px;
-  color: var(--ink-3);
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
   max-width: 420px;
   line-height: 1.5;
-  position: relative;
-  z-index: 1;
+  letter-spacing: -0.005em;
 }
 
 .intro-scroll {
@@ -317,6 +410,7 @@ button { font-family: inherit; cursor: pointer; }
   bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -324,13 +418,13 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 10.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
 }
 .is-line {
   width: 1px;
   height: 36px;
-  background: linear-gradient(180deg, var(--ink-4) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, transparent 100%);
   animation: shline 2.4s ease-in-out infinite;
 }
 @keyframes shline {
@@ -344,12 +438,15 @@ button { font-family: inherit; cursor: pointer; }
   .intro-final { font-size: 48px; }
   .if-aperture { width: 44px; height: 44px; }
   .intro-words { margin-bottom: 40px; }
+  .bg-photo { opacity: 0.45; }
+  .bgp-3, .bgp-4 { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .intro { height: auto; min-height: 100vh; }
   .intro-stage { position: static; height: auto; padding: 80px var(--pad-x); }
   .is-line { animation: none; }
+  .bg-photo { animation: none; }
 }
 
 /* ==================================================================
