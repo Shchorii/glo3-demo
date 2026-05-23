@@ -40,7 +40,7 @@
   tl.to('.intro-words', { opacity: 0, scale: 0.4, duration: 0.22 }, 0.50);
 
   // 45–80%: background photos recede (still visible, but quieter)
-  tl.to('.bg-photo', { opacity: 0.18, scale: 0.92, duration: 0.35 }, 0.45);
+  tl.to('.intro-bg', { opacity: 0.35, duration: 0.35 }, 0.45);
 
   // 50–68%: cap fades briefly during the transition
   tl.to('.intro-cap', { opacity: 0, duration: 0.18 }, 0.50);
@@ -50,6 +50,55 @@
 
   // 80–100%: cap fades back in below brand
   tl.to('.intro-cap', { opacity: 1, duration: 0.20 }, 0.80);
+})();
+
+/* ===========================================================
+   GLO — Rapid-cut background cycler
+   Single image visible at a time, hard-cuts every ~280ms.
+   Pauses when section is offscreen to save CPU.
+   =========================================================== */
+(function () {
+  const frames = document.querySelectorAll('.intro-bg .bg-frame');
+  const intro = document.getElementById('intro');
+  if (!frames.length || !intro) return;
+
+  // Respect reduced motion — single still frame, no cycling
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const FRAME_MS = 280;
+  let i = 0;
+  let timer = null;
+  let running = false;
+
+  function step() {
+    frames[i].classList.remove('is-current');
+    i = (i + 1) % frames.length;
+    frames[i].classList.add('is-current');
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    timer = setInterval(step, FRAME_MS);
+  }
+  function stop() {
+    if (!running) return;
+    running = false;
+    clearInterval(timer);
+    timer = null;
+  }
+
+  // Only run while the intro is in viewport
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) start(); else stop();
+      }
+    }, { rootMargin: '0px' });
+    io.observe(intro);
+  } else {
+    start();
+  }
 })();
 
 
