@@ -3,362 +3,569 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Glo — Light up your block.</title>
-<meta name="description" content="Neighborhood advertising for the businesses that can be walked to. $29 a day, one block at a time." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFA94D'/%3E%3C/svg%3E" />
+<title>Glo — Hyperlocal advertising for the businesses your customers walk past.</title>
+<meta name="description" content="Glo runs block-level ad campaigns on premium publisher inventory at $29 a day. Brooklyn live Q3 2026. Tel Aviv and Austin to follow." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='28' fill='%23C5732C'/%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Loader -->
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <span class="loader-char" data-i="0">G</span><span class="loader-char" data-i="1">l</span><span class="loader-char" data-i="2">o</span>
-    <div class="loader-meta">
-      <span class="loader-meta-l">Brooklyn</span>
-      <span class="loader-bar"><span class="loader-bar-fill"></span></span>
-      <span class="loader-meta-r" id="loaderPct">000</span>
-    </div>
-  </div>
-</div>
-
-<!-- Grain overlay -->
-<div class="grain" aria-hidden="true"></div>
-
-<!-- Custom glow cursor -->
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-<!-- Nav -->
+<!-- ============== NAV ============== -->
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#">
-      <span class="brand-dot"></span>
-      <span class="brand-text">Glo</span>
+    <a class="brand" href="#" aria-label="Glo home">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="9" fill="#C5732C"/>
+        <circle cx="16" cy="16" r="14" fill="none" stroke="#C5732C" stroke-opacity="0.25" stroke-width="1.2"/>
+      </svg>
+      <span>Glo</span>
     </a>
     <nav class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#cities">Cities</a>
-      <a href="#price">Pricing</a>
-      <a href="#cta" class="nav-cta">Join the list</a>
+      <a href="#product">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#publishers">Publishers</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-sm btn-ghost">Sign in</a>
+      <a href="#cta" class="btn btn-sm btn-primary">Request access</a>
+    </div>
   </div>
 </header>
 
 <main>
 
-  <!-- ========================= -->
-  <!-- HERO -->
-  <!-- ========================= -->
-  <section class="hero" data-theme="dark">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-streetlamp"></div>
-      <div class="hero-grid"></div>
-    </div>
-    <div class="hero-inner">
-      <div class="hero-eyebrow">
-        <span class="dot"></span>
-        <span>Seed round closed — Brooklyn live Q3 2026</span>
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          Seed round closed · Brooklyn live Q3 2026
+        </div>
+        <h1 class="hero-h">
+          Advertising <em>priced</em> by the&nbsp;block.
+        </h1>
+        <p class="hero-p">
+          Glo runs hyperlocal ad campaigns for the businesses your customers walk past — at $29 a day, on premium publisher inventory you can't buy anywhere else.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-primary">Request early access<span class="btn-arrow">→</span></a>
+          <a href="#product" class="btn btn-ghost">See how it works</a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <strong>$6M</strong>
+            <span>seed closed · 24 months</span>
+          </div>
+          <div class="meta-item">
+            <strong>3 cities</strong>
+            <span>Brooklyn, Tel Aviv, Austin</span>
+          </div>
+          <div class="meta-item">
+            <strong>ex-Ex.co, ex-Aditude</strong>
+            <span>founding team</span>
+          </div>
+        </div>
       </div>
-      <h1 class="hero-title" data-split-chars>Glo</h1>
-      <p class="hero-sub" data-split-words>Light up your block.</p>
-      <p class="hero-foot">Neighborhood advertising for the businesses that<br/>can be walked to.</p>
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+
+      <!-- Hero product mock: the map -->
+      <div class="hero-product">
+        <div class="window">
+          <div class="window-bar">
+            <div class="window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">Glo Console · Maria's Bakery</div>
+            <div class="window-status"><span class="live-dot"></span>Live</div>
+          </div>
+          <div class="window-body">
+            <!-- The map -->
+            <svg class="map" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-label="Hyperlocal targeting map">
+              <defs>
+                <pattern id="paper-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(21,19,26,0.04)" stroke-width="1"/>
+                </pattern>
+                <radialGradient id="ring-fade" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#C5732C" stop-opacity="0.18"/>
+                  <stop offset="60%" stop-color="#C5732C" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#C5732C" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <!-- Background -->
+              <rect width="600" height="400" fill="#F8F3E6"/>
+              <rect width="600" height="400" fill="url(#paper-grid)"/>
+
+              <!-- Block-fill rectangles (buildings) -->
+              <g fill="#E8DFC9" stroke="#DCD2B8" stroke-width="0.5">
+                <!-- Row 1 -->
+                <rect x="40" y="40" width="100" height="60" rx="2"/>
+                <rect x="160" y="40" width="140" height="60" rx="2"/>
+                <rect x="320" y="40" width="120" height="60" rx="2"/>
+                <rect x="460" y="40" width="100" height="60" rx="2"/>
+                <!-- Row 2 -->
+                <rect x="40" y="120" width="100" height="80" rx="2"/>
+                <rect x="160" y="120" width="140" height="80" rx="2"/>
+                <rect x="320" y="120" width="120" height="80" rx="2"/>
+                <rect x="460" y="120" width="100" height="80" rx="2"/>
+                <!-- Row 3 -->
+                <rect x="40" y="220" width="100" height="60" rx="2"/>
+                <rect x="160" y="220" width="140" height="60" rx="2"/>
+                <rect x="320" y="220" width="120" height="60" rx="2"/>
+                <rect x="460" y="220" width="100" height="60" rx="2"/>
+                <!-- Row 4 -->
+                <rect x="40" y="300" width="100" height="60" rx="2"/>
+                <rect x="160" y="300" width="140" height="60" rx="2"/>
+                <rect x="320" y="300" width="120" height="60" rx="2"/>
+                <rect x="460" y="300" width="100" height="60" rx="2"/>
+              </g>
+
+              <!-- Street labels -->
+              <g font-family="DM Sans, sans-serif" font-size="9" fill="#6B6358" letter-spacing="0.08em" text-transform="uppercase">
+                <text x="20" y="115" transform="rotate(-90, 20, 115)">BEDFORD AVE</text>
+                <text x="155" y="115" transform="rotate(-90, 155, 115)">DRIGGS AVE</text>
+                <text x="315" y="115" transform="rotate(-90, 315, 115)">WYTHE AVE</text>
+                <text x="455" y="115" transform="rotate(-90, 455, 115)">BERRY ST</text>
+                <text x="60" y="115" font-size="8">N. 7TH ST</text>
+                <text x="60" y="215" font-size="8">N. 6TH ST</text>
+                <text x="60" y="295" font-size="8">N. 5TH ST</text>
+              </g>
+
+              <!-- Concentric rings (targeting radii) — center around Wythe & N.7th -->
+              <g class="rings">
+                <circle cx="380" cy="200" r="180" fill="url(#ring-fade)" class="ring ring-3"/>
+                <circle cx="380" cy="200" r="180" fill="none" stroke="#C5732C" stroke-opacity="0.35" stroke-dasharray="3 4" class="ring ring-3"/>
+                <circle cx="380" cy="200" r="115" fill="url(#ring-fade)" class="ring ring-2"/>
+                <circle cx="380" cy="200" r="115" fill="none" stroke="#C5732C" stroke-opacity="0.55" stroke-dasharray="3 4" class="ring ring-2"/>
+                <circle cx="380" cy="200" r="55" fill="#C5732C" fill-opacity="0.16" class="ring ring-1"/>
+                <circle cx="380" cy="200" r="55" fill="none" stroke="#C5732C" stroke-width="1.5" class="ring ring-1"/>
+              </g>
+
+              <!-- Pin -->
+              <g class="pin">
+                <circle cx="380" cy="200" r="9" fill="#C5732C"/>
+                <circle cx="380" cy="200" r="4" fill="#F5EFE2"/>
+              </g>
+
+              <!-- Reach labels on rings -->
+              <g font-family="DM Sans, sans-serif" font-size="9" fill="#964F19" font-weight="500">
+                <text x="380" y="160" text-anchor="middle">~90m · 1,400/day</text>
+                <text x="380" y="100" text-anchor="middle">~300m · 6,200/day</text>
+                <text x="380" y="35" text-anchor="middle">~600m · 12,400/day</text>
+              </g>
+
+              <!-- Other businesses in the area as small dots -->
+              <g class="biz" fill="#6B6358">
+                <circle cx="220" cy="260" r="2.5"/>
+                <circle cx="280" cy="160" r="2.5"/>
+                <circle cx="490" cy="170" r="2.5"/>
+                <circle cx="480" cy="330" r="2.5"/>
+                <circle cx="200" cy="80" r="2.5"/>
+                <circle cx="350" cy="320" r="2.5"/>
+              </g>
+            </svg>
+
+            <!-- Overlay control card -->
+            <div class="map-overlay">
+              <div class="overlay-row">
+                <span class="overlay-label">Address</span>
+                <span class="overlay-value">247 Bedford Ave, Brooklyn</span>
+              </div>
+              <div class="overlay-row">
+                <span class="overlay-label">Radius</span>
+                <span class="overlay-value">4 blocks · ~600m</span>
+              </div>
+              <div class="overlay-row">
+                <span class="overlay-label">Budget</span>
+                <span class="overlay-value">$29 / day</span>
+              </div>
+              <div class="overlay-row last">
+                <span class="overlay-label">Reach</span>
+                <span class="overlay-value highlight">12,400 / day</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- PROBLEM — pinned -->
-  <!-- ========================= -->
-  <section class="pin-stage problem" data-theme="light">
-    <div class="pin-content">
-      <div class="problem-line line-a">
-        <span class="muted">Your customers live</span>
-        <span class="emph" data-split-chars>four blocks away.</span>
-      </div>
-      <div class="problem-line line-b">
-        <span class="muted">Your ads reach</span>
-        <span class="emph emph-warn" data-split-chars>four million strangers.</span>
-      </div>
-      <div class="problem-line line-c">
-        <span class="break-line" data-split-chars>Something is broken.</span>
-      </div>
+  <!-- ============== TRUST STRIP ============== -->
+  <section id="publishers" class="trust">
+    <p class="trust-lead">Building inventory with the publishers your neighbors already read.</p>
+    <div class="logos">
+      <div class="logo-item"><span class="logo-mark">BL</span><span class="logo-name">Brooklyn Local</span></div>
+      <div class="logo-item"><span class="logo-mark">BD</span><span class="logo-name">Borough Daily</span></div>
+      <div class="logo-item"><span class="logo-mark">CP</span><span class="logo-name">City Pulse</span></div>
+      <div class="logo-item"><span class="logo-mark">CB</span><span class="logo-name">Curbside</span></div>
+      <div class="logo-item"><span class="logo-mark">BX</span><span class="logo-name">Block.NYC</span></div>
+      <div class="logo-item"><span class="logo-mark">LT</span><span class="logo-name">The Local Times</span></div>
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- IMAGINE — pinned -->
-  <!-- ========================= -->
-  <section id="how" class="pin-stage imagine" data-theme="dark">
-    <div class="imagine-grid" aria-hidden="true"></div>
-    <div class="pin-content imagine-content">
-      <div class="imagine-eyebrow">02 — The thesis</div>
-      <h2 class="imagine-title">
-        <span class="imagine-prefix" data-split-words>Imagine the city as</span>
-        <span class="imagine-morph">
-          <span class="morph-word" data-morph="0">a grid of intent.</span>
-          <span class="morph-word" data-morph="1">a network of corners.</span>
-          <span class="morph-word" data-morph="2">a map of moments.</span>
-        </span>
+  <!-- ============== HOW TARGETING WORKS ============== -->
+  <section id="how" class="section how">
+    <div class="how-head">
+      <div class="section-tag">01 · Targeting</div>
+      <h2 class="section-h">
+        Pick a corner. Glo serves the four blocks <em>around it.</em>
       </h2>
-      <ul class="imagine-list">
-        <li data-fade>Every block, a market.</li>
-        <li data-fade>Every storefront, a billboard.</li>
-        <li data-fade>Every passerby, a customer in waiting.</li>
-      </ul>
     </div>
-  </section>
-
-  <!-- ========================= -->
-  <!-- BLOCK MAP -->
-  <!-- ========================= -->
-  <section class="blockmap" data-theme="dark">
-    <div class="blockmap-text">
-      <div class="section-eyebrow">03 — Targeting</div>
-      <h2 class="section-h" data-split-words>We target by block. Not by zip code.</h2>
-      <p class="section-p">A 90-meter radius. A single intersection. A specific side of the street. The grid below isn't a metaphor — it's how the platform actually thinks.</p>
-    </div>
-    <div class="blockmap-grid" id="blockGrid" aria-hidden="true"></div>
-  </section>
-
-  <!-- ========================= -->
-  <!-- HORIZONTAL — A day on the block -->
-  <!-- ========================= -->
-  <section class="daysection" data-theme="dark">
-    <div class="daysection-pin">
-      <div class="daysection-track" id="dayTrack">
-
-        <!-- Intro panel -->
-        <div class="day-panel day-intro">
-          <div class="day-intro-inner">
-            <div class="section-eyebrow">04 — A day on the block</div>
-            <h2 class="day-intro-h">
-              <span>A neighborhood</span>
-              <span>is not a&nbsp;market.</span>
-              <span><em>It's twenty-four of&nbsp;them.</em></span>
-            </h2>
-            <p class="day-intro-p">A single block hosts a dozen businesses, each peaking at a different hour. Glo serves the right ad at the right moment — to the people already two minutes away on foot.</p>
-            <div class="day-intro-foot">
-              <span>Scroll →</span>
-            </div>
-          </div>
+    <div class="how-grid">
+      <div class="how-copy">
+        <p class="lead">Block-level radius targeting on the actual movement of people — not zip-code aggregates or census blocks.</p>
+        <ul class="how-list">
+          <li>
+            <strong>Three configurable radii.</strong>
+            <span>~90m, ~300m, or ~600m around any address. Tighter radius costs less.</span>
+          </li>
+          <li>
+            <strong>Day-parted by hour, weekday, and weather.</strong>
+            <span>Run the brunch ad on Saturday morning. The umbrella ad when rain crosses 30%.</span>
+          </li>
+          <li>
+            <strong>No bid management.</strong>
+            <span>You set a budget. Glo allocates supply across the radius automatically.</span>
+          </li>
+          <li>
+            <strong>Live in two minutes.</strong>
+            <span>Drop a pin, upload one ad creative, set a budget. Approval is same-day for first-time advertisers.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="how-numbers">
+        <div class="num-item">
+          <div class="num">12,400</div>
+          <div class="num-sub">avg daily reach per block, Williamsburg pilot</div>
         </div>
-
-        <!-- Panel 1: 7am Bakery -->
-        <div class="day-panel" data-time="dawn">
-          <div class="day-panel-bg"></div>
-          <div class="day-panel-inner">
-            <div class="day-tag">
-              <span class="day-time">07:00</span>
-              <span class="day-loc">● Bedford & N. 7th</span>
-            </div>
-            <h3 class="day-h"><em>Morning&nbsp;rush.</em><br/>Coffee, croissants, commuters.</h3>
-            <p class="day-p">Glo lights up the block at 6:45. Every screen between the subway exit and the storefront — bus shelter, gas-pump display, weather-app banner — runs the bakery's $4 espresso ad.</p>
-            <div class="day-stat"><strong>820</strong><span>impressions / hour</span></div>
-          </div>
+        <div class="num-item">
+          <div class="num">$0.014</div>
+          <div class="num-sub">cost per impression at 4-block radius</div>
         </div>
-
-        <!-- Panel 2: 11:30 Hardware -->
-        <div class="day-panel" data-time="day">
-          <div class="day-panel-bg"></div>
-          <div class="day-panel-inner">
-            <div class="day-tag">
-              <span class="day-time">11:30</span>
-              <span class="day-loc">● Driggs & Berry</span>
-            </div>
-            <h3 class="day-h"><em>Pre-lunch&nbsp;contractors.</em><br/>Looking for a 3/8-inch&nbsp;bit.</h3>
-            <p class="day-p">A general store, a paint shop, a hardware store — all on the same corner. Glo serves a price-match offer to anyone within 200 meters between 11&nbsp;and&nbsp;noon.</p>
-            <div class="day-stat"><strong>340</strong><span>impressions / hour</span></div>
-          </div>
+        <div class="num-item">
+          <div class="num">2&nbsp;min</div>
+          <div class="num-sub">median time from sign-up to first impression</div>
         </div>
-
-        <!-- Panel 3: 1:45 Bookstore -->
-        <div class="day-panel" data-time="afternoon">
-          <div class="day-panel-bg"></div>
-          <div class="day-panel-inner">
-            <div class="day-tag">
-              <span class="day-time">13:45</span>
-              <span class="day-loc">● Wythe & N. 5th</span>
-            </div>
-            <h3 class="day-h"><em>Saturday&nbsp;drift.</em><br/>Four-block&nbsp;radius.</h3>
-            <p class="day-p">A bookstore that lives on weekend foot traffic runs a curated reading list ad to everyone walking south on Wythe. The closer the impression, the higher the bid.</p>
-            <div class="day-stat"><strong>1,210</strong><span>impressions / hour</span></div>
-          </div>
+        <div class="num-item">
+          <div class="num">93%</div>
+          <div class="num-sub">of pilot advertisers ran a second campaign</div>
         </div>
-
-        <!-- Panel 4: 7:30pm Pizza -->
-        <div class="day-panel" data-time="dusk">
-          <div class="day-panel-bg"></div>
-          <div class="day-panel-inner">
-            <div class="day-tag">
-              <span class="day-time">19:30</span>
-              <span class="day-loc">● Metropolitan & Roebling</span>
-            </div>
-            <h3 class="day-h"><em>Friday&nbsp;hunger.</em><br/>Three blocks&nbsp;out.</h3>
-            <p class="day-p">A pizza place wins the impression before the customer reaches the corner. The decision is made on the walk, not at the door. Glo is what was running on the walk.</p>
-            <div class="day-stat"><strong>2,540</strong><span>impressions / hour</span></div>
-          </div>
-        </div>
-
-        <!-- Panel 5: 11pm Bodega -->
-        <div class="day-panel" data-time="night">
-          <div class="day-panel-bg"></div>
-          <div class="day-panel-inner">
-            <div class="day-tag">
-              <span class="day-time">23:00</span>
-              <span class="day-loc">● Bedford & N. 6th</span>
-            </div>
-            <h3 class="day-h"><em>Late&nbsp;night.</em><br/>The corner&nbsp;bodega.</h3>
-            <p class="day-p">A $3-off six-pack ad runs on every screen within a 200-meter walk. The bodega adjusts price on the fly when foot traffic peaks. The block becomes a one-store mall.</p>
-            <div class="day-stat"><strong>980</strong><span>impressions / hour</span></div>
-          </div>
-        </div>
-
-        <!-- Outro -->
-        <div class="day-panel day-outro">
-          <div class="day-outro-inner">
-            <h3 class="day-outro-h">
-              <em>One block.</em><br/>
-              Six businesses.<br/>
-              Six different&nbsp;hours.
-            </h3>
-            <p class="day-outro-p">Twenty-four markets, stacked on top of each other. Glo serves them all — without one paying for another's audience.</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- PRICE -->
-  <!-- ========================= -->
-  <section id="price" class="price" data-theme="light">
-    <div class="price-eyebrow">05 — Pricing</div>
-    <div class="price-mega" data-split-chars>$29</div>
-    <div class="price-sub">
-      <span data-fade>per day.</span>
-      <span data-fade>per block.</span>
-      <span data-fade>no commitment.</span>
-    </div>
-    <p class="price-foot">What a billboard costs for an hour, you can run for a month.</p>
-  </section>
-
-  <!-- ========================= -->
-  <!-- CITIES -->
-  <!-- ========================= -->
-  <section id="cities" class="cities" data-theme="dark">
+  <!-- ============== PLATFORM ============== -->
+  <section id="product" class="section platform">
     <div class="section-head">
-      <div class="section-eyebrow">06 — Wedge cities</div>
-      <h2 class="section-h">Three neighborhoods.<br/>One playbook.</h2>
+      <div class="section-tag">02 · The platform</div>
+      <h2 class="section-h">Three things, <em>no fluff.</em></h2>
     </div>
-    <div class="city-stack">
-      <article class="city" data-city="brooklyn">
-        <div class="city-no">01</div>
-        <div class="city-meta">
-          <h3>Brooklyn</h3>
-          <p>The hardware stores, the bagel counters, the corner bodegas. The shops that survive on regulars and word-of-mouth — and have never had ad budget to defend either.</p>
+
+    <div class="platform-grid">
+
+      <!-- Card 1: Campaign builder -->
+      <article class="p-card">
+        <div class="p-mock">
+          <div class="mock-bar">
+            <span>Campaigns</span><span class="mock-bar-r">+ New</span>
+          </div>
+          <div class="mock-form">
+            <div class="form-row"><span class="frow-label">Address</span><span class="frow-value">247 Bedford Ave</span></div>
+            <div class="form-row"><span class="frow-label">Radius</span><span class="frow-value">4 blocks · ~600m</span></div>
+            <div class="form-row"><span class="frow-label">Budget</span><span class="frow-value">$29 / day</span></div>
+            <div class="form-row"><span class="frow-label">Schedule</span><span class="frow-value">Mon — Fri, 06:00 — 22:00</span></div>
+            <div class="form-row"><span class="frow-label">Creative</span><span class="frow-value">bakery-spring.png ✓</span></div>
+            <div class="form-row"><span class="frow-label">Status</span><span class="frow-value"><span class="live-dot"></span>Live</span></div>
+          </div>
         </div>
-        <div class="city-stat">
-          <span>4,820</span>
-          <small>SMBs in pilot</small>
-        </div>
-      </article>
-      <article class="city" data-city="telaviv">
-        <div class="city-no">02</div>
-        <div class="city-meta">
-          <h3>Tel Aviv</h3>
-          <p>Dizengoff to Florentin. The restaurants that fill on Thursday and empty on Monday. Local supply, hyperlocal demand — and a startup ecosystem fluent in the medium.</p>
-        </div>
-        <div class="city-stat">
-          <span>2,340</span>
-          <small>SMBs in pilot</small>
-        </div>
-      </article>
-      <article class="city" data-city="austin">
-        <div class="city-no">03</div>
-        <div class="city-meta">
-          <h3>Austin</h3>
-          <p>South Congress, East Sixth, Mueller. A growing city where every neighborhood still feels like a town, and where the small operator still defines the texture of a block.</p>
-        </div>
-        <div class="city-stat">
-          <span>3,110</span>
-          <small>SMBs in pilot</small>
+        <div class="p-meta">
+          <h3>Campaign builder</h3>
+          <p>Address, radius, budget, dates. No bid management. No audience pyramids. The builder fits on one screen because the platform fits one job.</p>
         </div>
       </article>
+
+      <!-- Card 2: Owned inventory -->
+      <article class="p-card">
+        <div class="p-mock">
+          <div class="mock-bar">
+            <span>Inventory · Williamsburg</span><span class="mock-bar-r">Refreshed 14:32</span>
+          </div>
+          <ul class="mock-list">
+            <li><span class="ml-l">Brooklyn Local</span><span class="ml-r ok">● Available</span></li>
+            <li><span class="ml-l">Borough Daily</span><span class="ml-r ok">● Available</span></li>
+            <li><span class="ml-l">City Pulse</span><span class="ml-r ok">● Available</span></li>
+            <li><span class="ml-l">Curbside</span><span class="ml-r warn">● 2 slots</span></li>
+            <li><span class="ml-l">Block.NYC</span><span class="ml-r off">○ Sold out</span></li>
+            <li><span class="ml-l">The Local Times</span><span class="ml-r ok">● Available</span></li>
+          </ul>
+        </div>
+        <div class="p-meta">
+          <h3>Owned inventory</h3>
+          <p>Premium publisher slots, made available at a local-business price because of a structural JV. The supply isn't reachable through any DSP.</p>
+        </div>
+      </article>
+
+      <!-- Card 3: Analytics -->
+      <article class="p-card">
+        <div class="p-mock">
+          <div class="mock-bar">
+            <span>Impressions · Last 7 days</span><span class="mock-bar-r">+12% wow</span>
+          </div>
+          <div class="mock-chart">
+            <div class="chart-big">47,820</div>
+            <svg viewBox="0 0 300 80" class="sparkline" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="spark-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C5732C" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#C5732C" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M 0 55 L 50 48 L 100 52 L 150 38 L 200 30 L 250 22 L 300 14 L 300 80 L 0 80 Z" fill="url(#spark-grad)"/>
+              <path d="M 0 55 L 50 48 L 100 52 L 150 38 L 200 30 L 250 22 L 300 14" fill="none" stroke="#C5732C" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="300" cy="14" r="3" fill="#C5732C"/>
+            </svg>
+          </div>
+          <div class="mock-stats">
+            <div><span>Attributed walk-ins</span><strong>142</strong></div>
+            <div><span>CPM</span><strong>$0.51</strong></div>
+            <div><span>CTR</span><strong>2.4%</strong></div>
+          </div>
+        </div>
+        <div class="p-meta">
+          <h3>Analytics</h3>
+          <p>Impressions, foot-traffic uplift, attributable visits. One screen. The dashboard a small business owner can read before opening for the day.</p>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- MOAT -->
-  <!-- ========================= -->
-  <section class="moat" data-theme="dark">
-    <div class="moat-inner">
-      <div class="section-eyebrow">07 — The moat</div>
-      <h2 class="moat-h">
-        Other platforms <em>place</em> ads.<br/>
-        We <em>own</em> the inventory.
+  <!-- ============== PRICING ============== -->
+  <section id="pricing" class="section pricing">
+    <div class="section-head">
+      <div class="section-tag">03 · Pricing</div>
+      <h2 class="section-h">
+        $29 per day, per block. <em>That's the whole table.</em>
       </h2>
-      <p class="moat-p">A joint venture with a premium publisher network unlocks ad slots that aren't available to anyone else at a local price point. The structural advantage isn't the targeting — it's the supply.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-table-wrap">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="th-us">Glo</th>
+              <th>Google Local</th>
+              <th>Meta Audience</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Daily price (4-block radius)</td>
+              <td class="td-us"><strong>$29</strong></td>
+              <td>~$180 — $240</td>
+              <td>~$120 — $200</td>
+            </tr>
+            <tr>
+              <td>Minimum spend</td>
+              <td class="td-us">None</td>
+              <td>$5 / day</td>
+              <td>$1 / day</td>
+            </tr>
+            <tr>
+              <td>Setup time</td>
+              <td class="td-us">~2 minutes</td>
+              <td>~30 minutes</td>
+              <td>~30 minutes</td>
+            </tr>
+            <tr>
+              <td>Block-level targeting</td>
+              <td class="td-us">✓ Native</td>
+              <td>Zip-code only</td>
+              <td>1-mile minimum</td>
+            </tr>
+            <tr>
+              <td>Owned publisher inventory</td>
+              <td class="td-us">✓ Yes</td>
+              <td>Search results</td>
+              <td>Meta surfaces only</td>
+            </tr>
+            <tr>
+              <td>Bid management</td>
+              <td class="td-us">Not required</td>
+              <td>Required</td>
+              <td>Required</td>
+            </tr>
+            <tr>
+              <td>Foot-traffic attribution</td>
+              <td class="td-us">✓ Built-in</td>
+              <td>Add-on</td>
+              <td>Off-platform</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="pricing-aside">
+        <div class="aside-card">
+          <div class="aside-eyebrow">EARLY ACCESS · BROOKLYN</div>
+          <div class="aside-price"><span>$0</span></div>
+          <div class="aside-sub">First month, first 500 blocks.</div>
+          <ul class="aside-list">
+            <li>One campaign, one block, one ad creative</li>
+            <li>Full analytics and attribution</li>
+            <li>No card on file</li>
+            <li>Pause or cancel any day</li>
+          </ul>
+          <a href="#cta" class="btn btn-primary btn-full">Request access<span class="btn-arrow">→</span></a>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- QUOTE -->
-  <!-- ========================= -->
-  <section class="quote" data-theme="light">
+  <!-- ============== WHO IT'S FOR ============== -->
+  <section class="section forwho">
+    <div class="section-head">
+      <div class="section-tag">04 · Built for</div>
+      <h2 class="section-h">The businesses without <em>an ad team.</em></h2>
+    </div>
+    <div class="forwho-grid">
+      <div class="who-tile"><div class="who-num">1</div><strong>Bakeries &amp; cafés</strong><p>Morning rush, four-block coffee radius. Daily-changing menus.</p></div>
+      <div class="who-tile"><div class="who-num">2</div><strong>Hardware &amp; home</strong><p>Pre-lunch contractors. Saturday DIY. Price-match offers.</p></div>
+      <div class="who-tile"><div class="who-num">3</div><strong>Restaurants &amp; bars</strong><p>The Friday-night-decision moment, three blocks out.</p></div>
+      <div class="who-tile"><div class="who-num">4</div><strong>Boutiques &amp; books</strong><p>Weekend drift. Curated weekly stock that needs to be seen.</p></div>
+      <div class="who-tile"><div class="who-num">5</div><strong>Bodegas &amp; convenience</strong><p>Late-night runs. Six-pack pricing on the walk home.</p></div>
+      <div class="who-tile"><div class="who-num">6</div><strong>Studios &amp; clinics</strong><p>Yoga, dental, salons. Trial-class offers within walking distance.</p></div>
+    </div>
+  </section>
+
+  <!-- ============== TESTIMONIAL ============== -->
+  <section class="section testimonial">
     <blockquote>
-      <span class="quote-mark">&ldquo;</span>
-      <p data-split-words>I'm running ads to people who walk past my door. I have never been able to do that before.</p>
-      <footer>— Maria, Bakery on Bedford Ave</footer>
+      <p>I'm running ads to people who walk past my door. I have never been able to do that&nbsp;before.</p>
+      <footer>
+        <div class="t-avatar" aria-hidden="true">MR</div>
+        <div class="t-meta">
+          <strong>Maria Reyes</strong>
+          <span>Owner · Maria's Bakery · Williamsburg, Brooklyn</span>
+        </div>
+      </footer>
     </blockquote>
   </section>
 
-  <!-- ========================= -->
-  <!-- CTA -->
-  <!-- ========================= -->
-  <section id="cta" class="cta" data-theme="dark">
-    <div class="cta-glow" aria-hidden="true"></div>
+  <!-- ============== FAQ ============== -->
+  <section id="faq" class="section faq">
+    <div class="section-head">
+      <div class="section-tag">05 · Details</div>
+      <h2 class="section-h">Common <em>questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does block-level targeting actually work, technically?</summary>
+        <div class="faq-body">
+          <p>Glo enriches each ad request with a confidence-scored block-level location derived from publisher-side signals (panel data, IP, declared geo, intent). We don't depend on third-party cookies or device IDs. Targeting is evaluated at bid-time against the campaign's radius, not pre-segmented audiences.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Which publishers are in the inventory?</summary>
+        <div class="faq-body">
+          <p>A growing list of local-news, neighborhood-blog, weather, transit, and lifestyle publishers operating in each launch city. The full list is shared with verified advertisers in onboarding. New inventory is added monthly through a joint venture with a premium publisher network.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from Google Local Service Ads or Meta's local targeting?</summary>
+        <div class="faq-body">
+          <p>Two structural differences. First, targeting granularity: Glo runs at the block, not the zip code or one-mile radius. Second, supply: Glo owns dedicated publisher inventory rather than bidding into open exchanges, which is what lets us hold the price flat at $29/day instead of running auction CPMs against national brands.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I run ads in multiple neighborhoods or cities?</summary>
+        <div class="faq-body">
+          <p>Yes. Each block is a separate $29/day line item. Multi-block discounts kick in at five blocks. Multi-city is supported once a launch city is live — Brooklyn Q3 2026, Tel Aviv Q4, Austin Q1 2027.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you make the ad creative, or do I bring my own?</summary>
+        <div class="faq-body">
+          <p>Bring your own image and a one-line offer. We provide free creative help during the early-access program — first 500 advertisers get a one-time design pass.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What if my business doesn't fit the launch cities?</summary>
+        <div class="faq-body">
+          <p>Join the waitlist and tell us which neighborhood you'd want to launch in. The fourth city is being chosen partly on operator demand.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <section id="cta" class="section cta">
     <div class="cta-inner">
-      <h2 class="cta-h" data-split-chars>Light up your block.</h2>
-      <p class="cta-p">Brooklyn launches Q3. Tel Aviv and Austin to follow. <br/>Join the early operator list — first 500 blocks are free for a month.</p>
+      <h2 class="cta-h">Join the early-operator list.</h2>
+      <p class="cta-p">Brooklyn launches Q3 2026. The first 500 blocks are free for a month. We'll be in touch within a week of sign-up.</p>
       <form class="cta-form" onsubmit="return handleSubmit(event)">
-        <input type="email" placeholder="you@yourblock.com" required />
-        <button type="submit">
-          <span>Get on the list</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
+        <input type="email" placeholder="you@yourbusiness.com" required aria-label="Email address" />
+        <input type="text" placeholder="Business or neighborhood" aria-label="Business or neighborhood" />
+        <button type="submit">Request access<span class="btn-arrow">→</span></button>
       </form>
       <div class="cta-msg" id="ctaMsg"></div>
     </div>
   </section>
 
-  <footer class="foot">
-    <div class="foot-inner">
-      <div class="foot-brand">
-        <span class="brand-dot"></span>
-        Glo
-      </div>
-      <div class="foot-meta">
-        <span>© 2026 Glo, Inc.</span>
-        <span>·</span>
-        <span>A neighborhood is a market.</span>
-      </div>
-    </div>
-  </footer>
-
 </main>
 
-<!-- GSAP + Lenis from CDN -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<!-- ============== FOOTER ============== -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-col foot-brand">
+      <a class="brand" href="#" aria-label="Glo home">
+        <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="9" fill="#C5732C"/>
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#C5732C" stroke-opacity="0.25" stroke-width="1.2"/>
+        </svg>
+        <span>Glo</span>
+      </a>
+      <p>Hyperlocal advertising for the businesses your customers walk past.</p>
+      <p class="foot-tiny">Brooklyn · Tel Aviv · Austin</p>
+    </div>
+    <div class="foot-col">
+      <h6>Product</h6>
+      <a href="#how">Targeting</a>
+      <a href="#product">Platform</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#publishers">Publishers</a>
+    </div>
+    <div class="foot-col">
+      <h6>Company</h6>
+      <a href="#">About</a>
+      <a href="#">Team</a>
+      <a href="#">Investors</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="foot-col">
+      <h6>Resources</h6>
+      <a href="#faq">FAQ</a>
+      <a href="#">Brand</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© 2026 Glo, Inc.</span>
+    <span>Built in Brooklyn &amp; Tel Aviv.</span>
+  </div>
+</footer>
+
+<!-- Lenis for smooth scroll only -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script src="script.js"></script>
 
