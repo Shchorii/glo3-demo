@@ -1,5 +1,55 @@
 /* ===========================================================
-   GLO — Interactive hero map
+   GLO — Intro morph: scroll choreography
+   "Geo. Local. Owned." → "gl•" brand mark
+   GSAP ScrollTrigger with scrub for smooth scroll-tied animation.
+   =========================================================== */
+(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  if (!document.getElementById('intro')) return;
+
+  // Respect reduced motion
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Initial states — brand mark hidden + centered (we manage its transform via GSAP)
+  gsap.set('.intro-final', { xPercent: -50, yPercent: -50, scale: 0.7, opacity: 0 });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#intro',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.8,
+    },
+  });
+
+  // 0–22%: trailing letters fade with slight slide right (staggered)
+  tl.to('.iw[data-i="0"] .ir', { opacity: 0, x: 12, duration: 0.22 }, 0);
+  tl.to('.iw[data-i="1"] .ir', { opacity: 0, x: 12, duration: 0.22 }, 0.04);
+  tl.to('.iw[data-i="2"] .ir', { opacity: 0, x: 12, duration: 0.22 }, 0.08);
+
+  // 0–15%: scroll hint fades
+  tl.to('.intro-scroll', { opacity: 0, duration: 0.15 }, 0);
+
+  // 30–55%: G/L/O tighten letterSpacing (focus moment)
+  tl.to('.iw', { letterSpacing: '-0.08em', duration: 0.25 }, 0.30);
+
+  // 50–72%: stack fades + scales down toward center
+  tl.to('.intro-words', { opacity: 0, scale: 0.4, duration: 0.22 }, 0.50);
+
+  // 50–68%: cap fades briefly during the transition
+  tl.to('.intro-cap', { opacity: 0, duration: 0.18 }, 0.50);
+
+  // 60–90%: brand mark fades in, scales up to full
+  tl.to('.intro-final', { opacity: 1, scale: 1, duration: 0.30 }, 0.60);
+
+  // 80–100%: cap fades back in below brand
+  tl.to('.intro-cap', { opacity: 1, duration: 0.20 }, 0.80);
+})();
+
+
    Drag the pin. Click radius pills. Reach + address update live.
    =========================================================== */
 (function () {

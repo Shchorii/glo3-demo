@@ -227,6 +227,132 @@ button { font-family: inherit; cursor: pointer; }
 .nav-link-sm:hover { color: var(--ink); }
 
 /* ==================================================================
+   INTRO MORPH — first-page scroll choreography
+   Three words "Geo. Local. Owned." → brand mark "gl•"
+================================================================== */
+.intro {
+  position: relative;
+  height: 260vh;
+  background: var(--bg);
+}
+.intro-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 var(--pad-x);
+  overflow: hidden;
+}
+.intro-words {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.02;
+  margin-bottom: 56px;
+}
+.iw {
+  font-family: var(--f-sans);
+  font-size: clamp(72px, 13vw, 200px);
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  color: var(--ink);
+  white-space: nowrap;
+  margin: 0;
+  will-change: transform, opacity;
+}
+.il { color: var(--ink); display: inline-block; }
+.ir {
+  color: var(--ink-4);
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.intro-final {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--f-sans);
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  pointer-events: none;
+  /* GSAP will manage xPercent, yPercent, scale, opacity */
+}
+.if-word {
+  font-variation-settings: "wght" 500;
+  line-height: 1;
+}
+.if-aperture {
+  margin-left: -2px;
+  position: relative;
+  top: 1px;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.intro-cap {
+  font-size: 14.5px;
+  color: var(--ink-3);
+  margin: 0;
+  max-width: 420px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  font-weight: 500;
+}
+.is-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--ink-4) 0%, transparent 100%);
+  animation: shline 2.4s ease-in-out infinite;
+}
+@keyframes shline {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.85); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 760px) {
+  .intro { height: 220vh; }
+  .iw { font-size: clamp(56px, 18vw, 96px); letter-spacing: -0.04em; }
+  .intro-final { font-size: 48px; }
+  .if-aperture { width: 44px; height: 44px; }
+  .intro-words { margin-bottom: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro { height: auto; min-height: 100vh; }
+  .intro-stage { position: static; height: auto; padding: 80px var(--pad-x); }
+  .is-line { animation: none; }
+}
+
+/* ==================================================================
    HERO
 ================================================================== */
 .hero {
