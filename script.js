@@ -75,9 +75,13 @@
     duration: 0.08
   }, 0.86);
 
-  // 0.94–1.00: hold final state. Everything is now white canvas with
-  // dark gl• centered. Sticky releases at 1.00 into a fully prepared
-  // white viewport — the hero slides up into the same canvas.
+  // 0.94–1.00: HOLD final state. Empty tween extends total timeline
+  // duration to exactly 1.0, so ScrollTrigger's scrub maps scroll
+  // progress 1:1 to timeline position. Without this the timeline would
+  // end at 0.94 and ScrollTrigger would compress everything by 6%.
+  // This window also gives the scrub-eased timeline time to fully
+  // settle before sticky releases at scroll progress 1.0.
+  tl.to({}, { duration: 0.06 }, 0.94);
 })();
 
 /* ===========================================================
