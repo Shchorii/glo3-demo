@@ -28,6 +28,7 @@
   --amber:     #D97706;
   --amber-deep:#B45309;
   --amber-soft:#F5BD7C;
+  --amber-glow:rgba(245, 189, 124, 0.18);
 
   /* Status */
   --ok:        #059669;
@@ -82,6 +83,30 @@
   max-width: 65ch;
 }
 
+/* ==================================================================
+   FOCUS VISIBILITY
+   Keyboard-only focus ring on all interactive elements.
+   :focus-visible only fires for keyboard, so mouse users see nothing.
+================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[role="radio"]:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Form inputs replace their border with amber on keyboard focus */
+.cta-field input:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -120,14 +145,15 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: -0.005em;
   border-radius: 100px;
   border: 1px solid transparent;
+  min-height: 44px;
   transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
   white-space: nowrap;
   text-decoration: none;
 }
-.btn-sm { padding: 7px 14px; font-size: 13px; font-weight: 500; }
+.btn-sm { padding: 8px 14px; font-size: 13px; font-weight: 500; min-height: 36px; }
 .btn-md { padding: 12px 22px; font-size: 14.5px; font-weight: 500; }
 .btn-dark { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.btn-dark:hover { background: #222; border-color: #222; }
+.btn-dark:hover { background: var(--ink-2); border-color: var(--ink-2); }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-3); }
 .btn-ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn-link { background: transparent; color: var(--ink); padding: 12px 4px; border: 0; }
@@ -758,8 +784,8 @@ button { font-family: inherit; cursor: pointer; }
 .dh-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: #F5BD7C;
-  box-shadow: 0 0 0 4px rgba(245, 189, 124, 0.18);
+  background: var(--amber-soft);
+  box-shadow: 0 0 0 4px var(--amber-glow);
 }
 
 /* Radius pill row */
@@ -1341,7 +1367,7 @@ button { font-family: inherit; cursor: pointer; }
 .ch-bar i {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #F5BD7C 0%, #D97706 100%);
+  background: linear-gradient(90deg, var(--amber-soft) 0%, var(--amber) 100%);
   border-radius: 2px;
 }
 .ms-foot {
@@ -1696,7 +1722,7 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 280px;
 }
 .foot-col h3 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1756,6 +1782,8 @@ button { font-family: inherit; cursor: pointer; }
   .tl-url { display: none; }
   .app-titlebar { grid-template-columns: 1fr; }
   .pilot-grid { grid-template-columns: 1fr; }
+  /* P1 touch targets on mobile: footer links need 44px tap area */
+  .foot-col a { padding: 10px 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

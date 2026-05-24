@@ -48,23 +48,23 @@
 
       <!-- Background: rapid-cut photo cycle -->
       <div class="intro-bg" aria-hidden="true">
-        <img class="bg-frame is-current" alt=""
+        <img class="bg-frame is-current" alt="" fetchpriority="high" decoding="async"
              src="https://images.unsplash.com/photo-1749292177172-66edfd44e7cc?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1758649863410-2d35a9d36f70?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1698281408696-222848ae8d74?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1681042121167-fec1056bc386?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1749871615234-98bff62995ba?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1758380389082-8a417db34c72?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1643944460517-58de76929473?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1745425814434-28f5437b4dcf?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
-        <img class="bg-frame" alt=""
+        <img class="bg-frame" alt="" loading="lazy" decoding="async"
              src="https://images.unsplash.com/photo-1672845963895-590784e426be?w=1600&amp;q=72&amp;auto=format&amp;fit=crop"/>
         <div class="intro-vignette"></div>
       </div>
@@ -874,12 +874,12 @@
         </div>
         <form class="cta-form" onsubmit="return handleSubmit(event)">
           <div class="cta-field">
-            <label>Email</label>
-            <input type="email" placeholder="you@business.com" required />
+            <label for="cta-email">Email</label>
+            <input id="cta-email" type="email" placeholder="you@business.com" required autocomplete="email" />
           </div>
           <div class="cta-field">
-            <label>Business / city</label>
-            <input type="text" placeholder="Maria's Bakery, Brooklyn" />
+            <label for="cta-business">Business / city</label>
+            <input id="cta-business" type="text" placeholder="Maria's Bakery, Brooklyn" autocomplete="organization" />
           </div>
           <button class="btn btn-dark btn-md btn-full" type="submit">Request access</button>
           <div class="cta-msg" id="ctaMsg" aria-live="polite"></div>
