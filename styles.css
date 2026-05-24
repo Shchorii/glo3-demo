@@ -75,6 +75,12 @@
 .logos-lead {
   max-width: 65ch;
 }
+.feature-list div > div,
+.pilot-d,
+.pilot-quote p,
+.who-c p {
+  max-width: 65ch;
+}
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
