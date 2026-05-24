@@ -43,7 +43,7 @@
   --d-ink:     #FAFAFA;
   --d-ink-2:   #C7C7CC;
   --d-ink-3:   #8A8A91;
-  --d-ink-4:   #7C7C82;
+  --d-ink-4:   #7F8084;
 
   --f-sans: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -146,14 +146,14 @@ button { font-family: inherit; cursor: pointer; }
 .micro-tag-l {
   background: var(--ink);
   color: var(--bg);
-  padding: 4px 10px;
+  padding: 5px 10px;
   letter-spacing: 0.02em;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
 }
 .micro-tag-r {
-  padding: 4px 14px;
+  padding: 6px 14px;
   color: var(--ink-2);
 }
 
@@ -927,7 +927,7 @@ button { font-family: inherit; cursor: pointer; }
 .logo-wm:nth-child(2) { font-family: Georgia, serif; font-weight: 600; font-style: italic; font-size: 18px; }
 .logo-wm:nth-child(3) { font-weight: 800; letter-spacing: 0.06em; font-size: 12.5px; }
 .logo-wm:nth-child(4) { font-weight: 500; font-size: 18px; letter-spacing: -0.02em; }
-.logo-wm:nth-child(5) em { font-style: normal; color: var(--ink-5); margin-left: 1px; }
+.logo-wm:nth-child(5) em { font-style: normal; color: var(--ink-4); margin-left: 1px; }
 .logo-wm:nth-child(6) { font-family: Georgia, serif; font-weight: 400; font-size: 17px; }
 .logo-wm:hover { opacity: 1; color: var(--ink-2); }
 
@@ -1606,7 +1606,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 14.5px;
   line-height: 1.6;
   color: var(--ink-3);
-  max-width: 720px;
+  max-width: 60ch;
 }
 
 /* ==================================================================
@@ -1700,7 +1700,7 @@ button { font-family: inherit; cursor: pointer; }
   display: block;
   font-size: 13.5px;
   color: var(--ink-2);
-  padding: 4px 0;
+  padding: 6px 0;
   transition: color var(--t-fast);
 }
 .foot-col a:hover { color: var(--ink); }
