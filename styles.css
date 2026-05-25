@@ -1787,7 +1787,33 @@ button { font-family: inherit; cursor: pointer; }
   .pilot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  .nav-links { display: none; }
+  /* Nav — horizontal scroll strip restores mobile wayfinding.
+     Gradient mask on right edge hints "there's more →".
+     Sign-in link hides (tertiary; not where we want focus on mobile). */
+  .nav-inner { gap: 12px; }
+  .nav-links {
+    display: flex;
+    justify-self: stretch;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 18px;
+    padding-right: 24px;
+    mask-image: linear-gradient(90deg, black calc(100% - 32px), transparent);
+    -webkit-mask-image: linear-gradient(90deg, black calc(100% - 32px), transparent);
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 14px 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-link-sm { display: none; }
   .nav-cta { gap: 8px; }
   .hero { padding: 40px 0 24px 0; }
   .hero-cta { flex-direction: column; gap: 12px; }
