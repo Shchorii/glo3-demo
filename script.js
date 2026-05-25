@@ -323,10 +323,55 @@
 function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  const email = form.querySelector('input[type="email"]');
+  const email = form.querySelector('#cta-email');
+  const emailErr = form.querySelector('#cta-email-err');
   const msg = document.getElementById("ctaMsg");
-  if (!email.value) return false;
-  msg.textContent = "Got it. We'll be in touch from Brooklyn within a week.";
-  form.reset();
+
+  // Clear prior error state
+  email.classList.remove('is-invalid');
+  email.removeAttribute('aria-invalid');
+  emailErr.textContent = '';
+
+  // Validate: required + valid email format
+  if (!email.value.trim()) {
+    email.classList.add('is-invalid');
+    email.setAttribute('aria-invalid', 'true');
+    emailErr.textContent = "Add your email so we can reach you.";
+    email.focus();
+    return false;
+  }
+  if (!email.checkValidity()) {
+    email.classList.add('is-invalid');
+    email.setAttribute('aria-invalid', 'true');
+    emailErr.textContent = "That email looks off — check the spelling?";
+    email.focus();
+    return false;
+  }
+
+  // Simulated submit — disable button, swap label, ~700ms delay
+  form.classList.add('is-submitting');
+  msg.textContent = '';
+
+  setTimeout(() => {
+    form.classList.remove('is-submitting');
+    msg.textContent = "Got it. We'll be in touch from Brooklyn within a week.";
+    form.reset();
+  }, 700);
+
   return false;
 }
+
+// Clear inline error as the user types
+document.addEventListener('DOMContentLoaded', () => {
+  const email = document.getElementById('cta-email');
+  const emailErr = document.getElementById('cta-email-err');
+  if (email && emailErr) {
+    email.addEventListener('input', () => {
+      if (email.classList.contains('is-invalid')) {
+        email.classList.remove('is-invalid');
+        email.removeAttribute('aria-invalid');
+        emailErr.textContent = '';
+      }
+    });
+  }
+});

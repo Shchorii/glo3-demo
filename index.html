@@ -872,16 +872,20 @@
           <h2 class="cta-h">Run your first campaign before close of business Friday.</h2>
           <p class="cta-p">Brooklyn launches Q3 2026. The first 500 small businesses get their first month free. We'll be in touch within a week of sign-up.</p>
         </div>
-        <form class="cta-form" onsubmit="return handleSubmit(event)">
+        <form class="cta-form" novalidate onsubmit="return handleSubmit(event)">
           <div class="cta-field">
             <label for="cta-email">Email</label>
-            <input id="cta-email" type="email" placeholder="you@business.com" required autocomplete="email" />
+            <input id="cta-email" type="email" placeholder="you@business.com" required autocomplete="email" aria-describedby="cta-email-err" />
+            <p class="cta-field-error" id="cta-email-err" aria-live="polite"></p>
           </div>
           <div class="cta-field">
             <label for="cta-business">Business / city</label>
             <input id="cta-business" type="text" placeholder="Maria's Bakery, Brooklyn" autocomplete="organization" />
           </div>
-          <button class="btn btn-dark btn-md btn-full" type="submit">Request access</button>
+          <button class="btn btn-dark btn-md btn-full" type="submit">
+            <span class="btn-label-default">Request access</span>
+            <span class="btn-label-sending">Sending…</span>
+          </button>
           <div class="cta-msg" id="ctaMsg" aria-live="polite"></div>
         </form>
       </div>
